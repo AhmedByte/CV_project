@@ -53,25 +53,25 @@ def preprocess_images():
                 # Noise reduction using Gaussian blur (apply on the original color image)
                 blurred_img = cv2.GaussianBlur(resized_img, (5, 5), 0)
                 
-                # Normalization: Scale pixel values to range [0, 1]
-                normalized_img = blurred_img / 255.0
+                # # Normalization: Scale pixel values to range [0, 1]
+                # normalized_img = blurred_img / 255.0
 
-                # Split the image into its R, G, B channels
-                (B, G, R) = cv2.split(normalized_img)
+                # # Split the image into its R, G, B channels
+                # (B, G, R) = cv2.split(normalized_img)
 
-                # Apply histogram equalization to each channel
-                R_eq = cv2.equalizeHist((R * 255).astype(np.uint8))  # Convert to uint8 for equalizeHist
-                G_eq = cv2.equalizeHist((G * 255).astype(np.uint8))  # Convert to uint8 for equalizeHist
-                B_eq = cv2.equalizeHist((B * 255).astype(np.uint8))  # Convert to uint8 for equalizeHist
+                # # Apply histogram equalization to each channel
+                # R_eq = cv2.equalizeHist((R * 255).astype(np.uint8))  # Convert to uint8 for equalizeHist
+                # G_eq = cv2.equalizeHist((G * 255).astype(np.uint8))  # Convert to uint8 for equalizeHist
+                # B_eq = cv2.equalizeHist((B * 255).astype(np.uint8))  # Convert to uint8 for equalizeHist
 
-                # Merge the channels back
-                enhanced_img = cv2.merge([B_eq, G_eq, R_eq])
+                # # Merge the channels back
+                # enhanced_img = cv2.merge([B_eq, G_eq, R_eq])
 
                 # Save the processed image in the new folder
                 processed_img_path = os.path.join(category_processed_dir, img_name)
                 
                 # Check if the image was successfully saved
-                if cv2.imwrite(processed_img_path, enhanced_img):
+                if cv2.imwrite(processed_img_path, blurred_img):
                     print(f"Image {img_name} saved successfully!")
                 else:
                     print(f"Error saving image {img_name}")

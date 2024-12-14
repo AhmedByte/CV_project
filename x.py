@@ -5,13 +5,13 @@ import numpy as np
 
 # Paths to datasets
 base_dirs = {
-    "train": "train",
-    "test": "test",
-    "valid": "valid"
+    "train": "Ptrain_data",
+    "test": "Ptest_data",
+
 }
 
 # Path to store the merged images (after preprocessing)
-merged_data_dir = "data"
+merged_data_dir = "Pdata"
 
 # Categories
 categories = ["apple", "banana", "grape", "mango", "strawberry"]
